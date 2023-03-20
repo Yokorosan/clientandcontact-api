@@ -1,2 +1,13 @@
 # clientandcontact-api
-Api to handle register of users/clients and their contacts. Part of a fullstack Project
+
+How to install and use:
+1. Installing Dependencies
+``` 
+yarn install
+
+```
+2. Run the server
+```
+yarn run dev 
+```
+3. Enjoy!
