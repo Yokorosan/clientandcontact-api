@@ -1,6 +1,12 @@
 declare global {
   namespace Express {
-    interface Request {}
+    interface Request {
+      user: {
+        id: string;
+        isAdm: boolean;
+        isActive: boolean;
+      };
+    }
   }
 }
 

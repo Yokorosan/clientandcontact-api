@@ -1,3 +1,18 @@
-import { register, registerCreate, registerResponse } from "./contact.schema";
+import {
+  client,
+  clientCreate,
+  clientResponse,
+  clientEdit,
+} from "./client.schema";
+import { registerContact, registerWithUser } from "./contact.schema";
+import { login } from "./login.schema";
 
-export { register, registerCreate, registerResponse };
+export {
+  client,
+  clientCreate,
+  clientResponse,
+  clientEdit,
+  registerContact,
+  registerWithUser,
+  login,
+};
