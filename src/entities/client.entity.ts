@@ -1,4 +1,4 @@
-import { hashSync } from "bcryptjs";
+import { getRounds, hashSync } from "bcryptjs";
 import {
   BeforeUpdate,
   BeforeInsert,
@@ -23,7 +23,7 @@ class Client {
   @Column({ length: 100 })
   email: string;
 
-  @Column({ length: 100 })
+  @Column({ length: 120 })
   password: string;
 
   @Column({ default: true })
@@ -42,12 +42,15 @@ class Client {
   updatedAt: Date;
 
   @DeleteDateColumn()
-  deletedAt: Date;
+  deletedAt: Date | null;
 
-  @BeforeUpdate()
   @BeforeInsert()
+  @BeforeUpdate()
   hashpassword() {
-    this.password = hashSync(this.password, 10);
+    const isEncrypted = getRounds(this.password);
+    if (!isEncrypted) {
+      this.password = hashSync(this.password, 10);
+    }
   }
 
   @OneToMany(() => Contact, (contact) => contact.user, { onDelete: "CASCADE" })
