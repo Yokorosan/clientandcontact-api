@@ -11,19 +11,19 @@ const createSessionService = async ({
 }: IUserLogin): Promise<string> => {
   const clientRepository = AppDataSource.getRepository(Client);
 
-  const client = await clientRepository.findOneBy({ email: email });
+  const client = await clientRepository.findOne({
+    where: { email: email },
+    withDeleted: true,
+  });
 
   if (!client) {
     throw new AppError("Email or password invalid", 403);
   }
 
-  if (client.isActive == false) {
-    throw new AppError("User is not active", 400);
-  }
-
-  const passwordMatch = await compare(password, client?.password!);
+  const passwordMatch = await compare(password, client.password!);
 
   if (!passwordMatch) {
+    console.log("Aqui?");
     throw new AppError("Email or password invalid", 403);
   }
 

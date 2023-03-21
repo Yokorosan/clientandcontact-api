@@ -43,4 +43,6 @@ const clientCreate = client.omit({
 
 const clientResponse = client.omit({ password: true });
 
-export { client, clientCreate, clientResponse, clientEdit };
+const manyClientResponse = z.array(clientResponse);
+
+export { client, clientCreate, clientResponse, clientEdit, manyClientResponse };
