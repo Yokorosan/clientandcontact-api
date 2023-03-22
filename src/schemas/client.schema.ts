@@ -29,7 +29,7 @@ const clientEdit = client
     name: z.string().max(75).optional(),
     email: z.string().max(100).optional(),
     password: z.string().optional(),
-    phone: z.string().max(15).optional(),
+    phone: z.string().max(20).optional(),
   });
 
 const clientCreate = client.omit({

@@ -14,7 +14,6 @@ const createContactService = async (
     where: { id: userId },
     relations: { contacts: true },
   });
-  console.log(client);
 
   const newContact = {
     name: body.name,
