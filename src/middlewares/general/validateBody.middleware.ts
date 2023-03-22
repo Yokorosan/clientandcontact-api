@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { ZodError, ZodTypeAny } from "zod";
-import { AppError } from "../../errors/appError";
+import { ZodTypeAny } from "zod";
 
 const validateBodyMiddleware =
   (schema: ZodTypeAny) =>

@@ -1,11 +1,12 @@
 import { AppDataSource } from "../../data-source";
 import { Client } from "../../entities";
-import { IPaginationResponse } from "../../interfaces/users.interface";
+import {
+  IManyUserResponse,
+  IPaginationResponse,
+} from "../../interfaces/users.interface";
 import { manyClientResponse } from "../../schemas";
 
-const listAllUsersService = async (
-  query: any
-): Promise<IPaginationResponse> => {
+const listAllUsersService = async (query: any): Promise<IManyUserResponse> => {
   let page = !query.page || query.page <= 0 ? 0 : query.page - 1;
   const perPage = !query.perPage || query.perPage > 2 ? 2 : query.perPage;
   const order = !query.order ? "ASC" : query.order;
@@ -16,11 +17,6 @@ const listAllUsersService = async (
     : "name";
 
   page = page * perPage;
-
-  console.log(1, page);
-  console.log(2, perPage);
-  console.log(3, order);
-  console.log(4, sort);
 
   const clientRepository = AppDataSource.getRepository(Client);
 
@@ -61,7 +57,7 @@ const listAllUsersService = async (
     data: validatedClients,
   };
 
-  return pagination;
+  return validatedClients;
 };
 
 export { listAllUsersService };

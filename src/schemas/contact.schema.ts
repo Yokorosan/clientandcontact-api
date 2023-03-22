@@ -10,6 +10,16 @@ const registerContact = z.object({
   updatedAt: z.date().nullable(),
 });
 
+const editContact = registerContact
+  .extend({
+    name: z.string().max(75).optional(),
+    email: z.string().max(100).optional(),
+    phone: z.string().max(15).optional(),
+  })
+  .omit({ id: true, createdAt: true, updatedAt: true });
+
+const manyContacts = z.array(registerContact);
+
 const registerWithUser = registerContact.extend({ user: clientCreate });
 
-export { registerContact, registerWithUser };
+export { registerContact, registerWithUser, editContact, manyContacts };
