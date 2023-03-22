@@ -32,7 +32,7 @@ class Client {
   @Column({ default: false })
   isAdm: boolean;
 
-  @Column({ length: 15 })
+  @Column({ length: 20 })
   phone: string;
 
   @CreateDateColumn()

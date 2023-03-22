@@ -10,6 +10,7 @@ const profileUserService = async (
   const client = await clientRepository.findOne({
     where: { id: userId },
     relations: { contacts: true },
+    withDeleted: true,
   });
 
   const validatedResponse = clientResponse.parse(client);

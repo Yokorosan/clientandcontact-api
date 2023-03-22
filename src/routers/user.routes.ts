@@ -64,12 +64,7 @@ usersRouter.put(
   restoreUserController
 );
 
-usersRouter.get(
-  "",
-  verifyAuthMiddleware,
-  ensureUserIsActiveMiddleware,
-  profileUserController
-);
+usersRouter.get("", verifyAuthMiddleware, profileUserController);
 
 usersRouter.get(
   "/all",
