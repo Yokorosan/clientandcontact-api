@@ -5,7 +5,12 @@ import {
   clientEdit,
   manyClientResponse,
 } from "./client.schema";
-import { registerContact, registerWithUser } from "./contact.schema";
+import {
+  registerContact,
+  registerWithUser,
+  editContact,
+  manyContacts,
+} from "./contact.schema";
 import { login } from "./login.schema";
 import { paginationResponse } from "./pagination.schema";
 export {
@@ -16,6 +21,8 @@ export {
   manyClientResponse,
   registerContact,
   registerWithUser,
+  editContact,
+  manyContacts,
   login,
   paginationResponse,
 };

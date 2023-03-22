@@ -7,7 +7,10 @@ const profileUserService = async (
   userId: string
 ): Promise<IUserCreateResponse> => {
   const clientRepository = AppDataSource.getRepository(Client);
-  const client = await clientRepository.findOneBy({ id: userId });
+  const client = await clientRepository.findOne({
+    where: { id: userId },
+    relations: { contacts: true },
+  });
 
   const validatedResponse = clientResponse.parse(client);
 
