@@ -23,7 +23,6 @@ const createSessionService = async ({
   const passwordMatch = await compare(password, client.password!);
 
   if (!passwordMatch) {
-    console.log("Aqui?");
     throw new AppError("Email or password invalid", 403);
   }
 
