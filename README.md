@@ -39,3 +39,5 @@ yarn test ./src/test/__tests__/integration/<folder>
 ### Caution
 
 Be aware that the server is configurated to run on htttp://localhost:3001, because localy with would conflict with other applications on localhost:3000, just select your prefered port on the .env file or in the server.ts to avoid conflict with other running applications.
+The entire application was developed using PostgreSQL, só keep that in mind when running the application localy.
+
