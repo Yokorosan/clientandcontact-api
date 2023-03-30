@@ -16,7 +16,11 @@ yarn run dev
 
 ### 3. Enjoy!
 
-For a more comprehensive way to use all the available routes, plase consult our documentation: https://github.com/Yokorosan/clientcontact_api_documentation
+For a more comprehensive way to use all the available routes, plase consult our documentation:
+Repository: https://github.com/Yokorosan/clientcontact_api_documentation
+Deployed: https://documentation-five-hazel.vercel.app
+
+Note that for better readbility all tokens and paths have been changed to their intended strings. If you open the documentation on insomnia app, you should have access to all variable in the development enviroment.
 
 ### If u want to run tests:
 
